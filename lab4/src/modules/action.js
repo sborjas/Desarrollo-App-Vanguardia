@@ -5,7 +5,8 @@ const Types = {
     GET_ITEMS: "GET_ITEMS",
     GET_ITEMS_SUCCESS: "GET_ITEMS_SUCCESS",
     CREATE_STUDENT: "CREATE_STUDENT",
-    CREATE_CLASS: "CREATE_CLASS"
+    CREATE_CLASS: "CREATE_CLASS",
+    GET_DATA: "GET_DATA"
 
   };
   // actions
@@ -34,6 +35,10 @@ const Types = {
   const getItems = () => ({
     type: Types.GET_ITEMS
   });
+
+  const getData = () => ({
+    type: Types.GET_DATA
+  });
   
   export default {
     createItem,
@@ -41,5 +46,7 @@ const Types = {
     getItems,
     Types,
     createClass,
-    createStudent
+    createStudent,
+    getData
+
   };

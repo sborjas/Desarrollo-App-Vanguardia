@@ -27,23 +27,19 @@ const styles = theme => ({
   });
 
 
+  const mapStateToProps = state => ({
+    studentName: state.studentName,
+    studentCode: state.studentCode,
+    className: state.className,
+    classCode: state.classCode
 
-class First extends Component {
-  constructor() {
-      super();
-      this.state = {
-          studentName: "",
-          studentCode: ""
-      };
-  }
-
-  handleChange = event => {
-      this.setState({
-          [event.target.name]: event.target.value
-      });
-  };
-
+});
   
+const mapDispatchToProps = dispatch => ({  
+});
+
+
+class Third extends Component { 
 
   render() {
     const {classes } = this.props;
@@ -51,26 +47,52 @@ class First extends Component {
       <div>
         <h1> THIRD!</h1>
         <TextField
-            id="standard-name"
-            label="Student Name"
-            className={classes.textField}
-            value=""
-            onChange={this.handleChange}
-            margin="normal"
+          disabled
+          id="outlined-disabled"
+          label="Student Name"
+          defaultValue="Student Name"
+          className={classes.textField}
+          margin="normal"
+          variant="outlined"
+          value={this.props.studentName}
         />
         <TextField
-            id="standard-name"
+            disabled
+            id="outlined-disabled"
             label="Student Code"
+            defaultValue="Student Code "
             className={classes.textField}
-            value=""
-            onChange={this.handleChange}
             margin="normal"
-        />
+            variant="outlined"
+            value={this.props.studentCode}
+          />
+
+          <TextField
+            disabled
+            id="outlined-disabled"
+            label="Class Name"
+            defaultValue="Class Name"
+            className={classes.textField}
+            margin="normal"
+            variant="outlined"
+            value={this.props.className}
+          />
+        <TextField
+            disabled
+            id="outlined-disabled"
+            label="Class Code"
+            defaultValue="Class Code "
+            className={classes.textField}
+            margin="normal"
+            variant="outlined"
+            value={this.props.classCode}
+          />
       </div>
     );
   }
 }
 
 export default connect(
-   
-  )(withStyles(styles)(First));
+   mapStateToProps,
+   mapDispatchToProps
+  )(withStyles(styles)(Third));
