@@ -3,8 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 import List from './components/List';
-import {AppBar, Typography, Toolbar} from '@material-ui/core';
-import {withStyles} from '@material-ui/core/styles';
+import AppNav from './components/AppNav'
 
 class App extends React.Component{
 
@@ -27,17 +26,11 @@ class App extends React.Component{
   }
 
   render(){
-    const {classes} = this.props;
+    
     const {heroes} = this.state;
     return (
       <div>
-        <AppBar className={classes.NavColor} position="static">
-          <Toolbar variant="dense">
-            <Typography variant="h6" component="p">
-            Super Heroe App
-            </Typography>
-          </Toolbar>
-        </AppBar>
+      <AppNav/> 
       <List heroes = {heroes} />   
 
       </div>
@@ -46,8 +39,4 @@ class App extends React.Component{
   }
 }
 
-export default withStyles({
-NavColor:{
-  backgroundColor: '#5091fa'
-}
-})(App);
+export default App;
